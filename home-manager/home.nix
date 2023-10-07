@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./neovim.nix
-    ./steam.nix
     ./user_packages.nix
   ];
 

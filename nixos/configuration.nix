@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ./window_manager.nix
     ./system_packages.nix
+    ./steam.nix
     ./platformio_udev.nix
     inputs.home-manager.nixosModules.home-manager
   ];
