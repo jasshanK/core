@@ -7,7 +7,6 @@
     ./window_manager.nix
     ./system_packages.nix
     ./platformio_udev.nix
-    ./steam.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
