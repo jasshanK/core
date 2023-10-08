@@ -18,6 +18,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
       )
+    kitty
 
     mako
     libnotify
