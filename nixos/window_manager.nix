@@ -5,6 +5,22 @@
     xwayland.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+      )
+    mako
+    libnotify
+
+    swww
+
+    rofi-wayland
+  ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   #services.xserver = {
   #  enable = true;
   #  layout = "us";
