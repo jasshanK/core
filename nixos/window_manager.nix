@@ -5,13 +5,24 @@
     xwayland.enable = true;
   };
 
+  services.xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
       )
+
     mako
     libnotify
+
+    networkmanagerapplet
 
     swww
 
