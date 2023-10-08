@@ -14,8 +14,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waybar
-
     kitty
 
     mako
