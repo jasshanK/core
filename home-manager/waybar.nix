@@ -2,14 +2,17 @@
 {
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar.overrideAttrs (oa: {
+      mesonFlags = (oa.mesonFlags or  [ ]) ++ [ "-Dexperimental=true" ];
+    });
     settings = { 
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["sway/workspaces" "sway/mode"];
-        modules-center = ["sway/window"];
+        modules-left = ["wlr/workspaces"];
+        modules-center = ["hyprland/window"];
         modules-right = ["battery" "clock"];
-        "sway/window" = {
+        "hyprland/window" = {
           max-length = 50;
         };
         battery = {

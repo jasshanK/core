@@ -12,7 +12,7 @@ let
 
 in
 {
- home.packages = with pkgs; [
+  home.packages = with pkgs; [
    # fundamentals
    htop 
    git
@@ -21,6 +21,7 @@ in
    ripgrep
    unzip
    zip
+   pkgsUnstable.way-displays
 
    # electronics 
    pulseview

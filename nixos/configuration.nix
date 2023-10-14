@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./window_manager.nix
+    ./desktop.nix
     ./system_packages.nix
     ./steam.nix
     ./platformio_udev.nix

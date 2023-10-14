@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: 
 {
+  imports = [
+    #./picoscope/picoscope.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     # fundamentals
     alacritty
@@ -8,9 +12,9 @@
 
     # desktop experience
     dmenu
-    feh
     bluez
     pavucontrol
     brightnessctl
   ];
+
 }
