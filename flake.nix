@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ inputs:  
@@ -25,10 +30,15 @@
   in
   {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system; };
 
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ ./hosts/laptop/configuration.nix ];
+      };
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
+
+        modules = [ ./hosts/desktop/configuration.nix ];
       };
     };
   };

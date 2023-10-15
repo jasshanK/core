@@ -1,13 +1,11 @@
 { config, pkgs, ... }: 
 {
-  imports = [
-    #./picoscope/picoscope.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     # fundamentals
+    htop
+    unzip 
+    zip
     alacritty
-    firefox
     starship 
 
     # desktop experience
@@ -16,5 +14,4 @@
     pavucontrol
     brightnessctl
   ];
-
 }

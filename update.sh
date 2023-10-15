@@ -1,2 +1,2 @@
 git add .
-sudo nixos-rebuild switch --impure --flake  ~/core
+sudo nixos-rebuild switch --impure --flake  ~/core#$1

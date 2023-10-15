@@ -1,18 +1,5 @@
 { config, pkgs, ... }:
 {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-
-    swww
-
-    rofi-wayland
-  ];
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -20,6 +7,7 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
+
     desktopManager = {
       xterm.enable = false;
       xfce = {
@@ -28,10 +16,8 @@
         enableXfwm = false;
       };
     };
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+
+    displayManager.defaultSession = "xfce+dwm";
 
     windowManager.dwm.enable = true;
   };
@@ -50,6 +36,7 @@
       });
     })
   ];
+
   # status bar init
   systemd.user.services.status_bar = {
     enable = true;
@@ -60,7 +47,7 @@
     serviceConfig = {
       Type="simple";
       passEnvironment = "DISPLAY";
-      ExecStart = "/home/jasshank/scripts/bar.sh";
+      ExecStart = "/home/jasshank/core/src/scripts/bar.sh";
       Restart = "on-failure";
     };
   };

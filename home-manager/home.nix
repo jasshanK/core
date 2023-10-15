@@ -4,14 +4,12 @@
   config,
   pkgs,
   ...
-}: let
-  pkgsUnstable = import <nixpkgs-unstable> {};
-in{
+}:
+{
   imports = [
     ./neovim.nix
+    ./firefox.nix
     ./user_packages.nix
-    #./waybar.nix
-    #./notif_daemon.nix
   ];
 
   nixpkgs = {
@@ -23,7 +21,7 @@ in{
     config = {
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (pkg: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -44,12 +42,16 @@ in{
     videos = "/home/jasshank/defaults/media/Videos";
   };
 
-  # Enable home-manager
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "jasshanK";
+    userEmail = "jasshank@gmail.com";
+  };
 
   systemd.user.startServices = "sd-switch";
   xsession.enable = true;
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 }
