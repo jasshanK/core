@@ -10,12 +10,13 @@ in
    nushell
    neofetch
    ripgrep
+   gnome.gnome-disk-utility
 
    # electronics 
    pulseview
    sigrok-cli
    sigrok-firmware-fx2lafw
-   pkgsUnstable.stm32cubemx
+   stm32cubemx
    kicad
 
    # general apps

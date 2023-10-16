@@ -17,10 +17,24 @@
       };
     };
 
-    displayManager.defaultSession = "xfce+dwm";
+    displayManager = {
+      defaultSession = "xfce+dwm";
+
+      lightdm = {
+        enable = true;
+        greeters.slick = {
+          enable = true;
+          theme.name = "Adwaita-dark";
+        };
+      };
+    };
 
     windowManager.dwm.enable = true;
   };
+
+  sound.mediaKeys.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
 
   # DWM and dmenu custom build
   nixpkgs.overlays = [
