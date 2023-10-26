@@ -59,6 +59,7 @@
   };
 
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.disableWhileTyping = true;
 
   nixpkgs.config.allowUnfree = true;
 
