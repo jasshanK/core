@@ -9,6 +9,7 @@
     starship 
 
     # desktop experience
+    xfce.xfce4-clipman-plugin
     dmenu
     bluez
     pavucontrol
