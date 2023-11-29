@@ -65,5 +65,13 @@
       Restart = "on-failure";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    dmenu
+    bluez
+    pavucontrol
+    brightnessctl
+    flameshot
+  ];
 }
 

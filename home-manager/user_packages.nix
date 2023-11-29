@@ -20,6 +20,7 @@ in
    kicad
 
    # general apps
+   pkgsUnstable.thunderbird
    vscode-fhs
    pkgsUnstable.prusa-slicer
    drawio

@@ -9,6 +9,7 @@
   imports = [
     ./neovim.nix
     ./firefox.nix
+    ./dunst.nix
     ./user_packages.nix
   ];
 
