@@ -5,6 +5,7 @@
     [ 
     ./hardware-configuration.nix
     ./bootloader.nix
+    ./gpu.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix
