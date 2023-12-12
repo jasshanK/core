@@ -6,16 +6,16 @@
       user = "jasshank";
       configDir = "/home/jasshank/core/src/syncthing";
       devices = {
-        "device1" = { id = "";};
+        "laptop" = { id = "H5PI3OS-MUU6E3A-XJBTOUC-G3CVGN5-NX7TFT6-RKC65SY-KQJD275-MU3NPQS";};
       };
       folders = {
         "Projects" = {
           path = "/home/jasshank/proj";
-          devices = [ "device1" ];
+          devices = [ "laptop" ];
         };
         "Work" = {
           path = "/home/jasshank/work";
-          devices = [ "device1" ];
+          devices = [ "laptop" ];
         };
       };
     };
