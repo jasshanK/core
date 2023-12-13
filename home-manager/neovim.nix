@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let customPlugins = {
-  moonfly-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  moonfly-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "moonfly.nvim";
     version = "2023-05-20";
     src = pkgs.fetchFromGitHub {

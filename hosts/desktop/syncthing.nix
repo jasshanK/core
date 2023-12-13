@@ -4,18 +4,22 @@
     syncthing = {
       enable = true;
       user = "jasshank";
-      configDir = "/home/jasshank/core/src/syncthing";
-      devices = {
-        "laptop" = { id = "H5PI3OS-MUU6E3A-XJBTOUC-G3CVGN5-NX7TFT6-RKC65SY-KQJD275-MU3NPQS";};
-      };
-      folders = {
-        "Projects" = {
-          path = "/home/jasshank/proj";
-          devices = [ "laptop" ];
+      dataDir = "/home/jasshank/core/src/syncthing";
+      settings = {
+        devices = { 
+          "laptop" = { 
+            id = "H5PI3OS-MUU6E3A-XJBTOUC-G3CVGN5-NX7TFT6-RKC65SY-KQJD275-MU3NPQS";
+          };
         };
-        "Work" = {
-          path = "/home/jasshank/work";
-          devices = [ "laptop" ];
+        folders = {
+          "Projects" = {
+            path = "/home/jasshank/proj";
+            devices = [ "laptop" ];
+          };
+          "Work" = {
+            path = "/home/jasshank/work";
+            devices = [ "laptop" ];
+          };
         };
       };
     };

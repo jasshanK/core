@@ -24,6 +24,11 @@
 
       set -g mouse on
 
+      set -g base-index 1
+      set -g renumber-windows on
+      set -g set-clipboard on
+      set -wg mode-keys vi
+
       set-option -g allow-rename off
 
       bind-key c new-window -c '#{pane_current_path}'
