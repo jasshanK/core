@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let 
   pkgsUnstable = import <nixpkgs-unstable> {
     config.allowUnfree = true;
