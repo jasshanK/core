@@ -7,7 +7,7 @@
       dataDir = "/home/jasshank/core/src/syncthing";
       settings = {
         devices = {
-          "desktop" = { id = "2CSAWIN-4JSSK5T-CWWZ3TM-GORWFJU-UQTFDYY-X7ITTDH-62D4DH6-MJZZMA5";};
+          "desktop" = { id = "3AQL5UC-XGBTWJX-GXASITD-QF2OIQL-56G6DDU-SSN236G-NOKM4CY-3MGBOAR";};
         };
         folders = {
           "Projects" = {

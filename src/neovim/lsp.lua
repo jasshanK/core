@@ -6,6 +6,7 @@ lspconfig.pyright.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {}
 lspconfig.ccls.setup {}
+lspconfig.zls.setup {}
 
 -- Global mappings. See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
