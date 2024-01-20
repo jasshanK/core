@@ -27,6 +27,10 @@ in
    telegram-desktop 
    whatsapp-for-linux
    obsidian
+
+   # recording 
+   obs-studio
+   gromit-mpx
  ];
 }
 

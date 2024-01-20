@@ -18,6 +18,10 @@
             path = "/home/jasshank/work";
             devices = [ "desktop" ];
           };
+          "Documents" = {
+            path = "/home/jasshank/defaults/Documents/";
+            devices = [ "desktop" ];
+          };
         };
       };
     };
