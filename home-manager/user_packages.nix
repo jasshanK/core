@@ -19,15 +19,16 @@ in
    sigrok-firmware-fx2lafw
    stm32cubemx
    kicad
+   xschem
+   ngspice
 
    # general apps
    pkgsUnstable.thunderbird
    vscode-fhs
    pkgsUnstable.prusa-slicer
    drawio
-   telegram-desktop 
-   whatsapp-for-linux
    obsidian
+   sioyek
 
    # recording 
    obs-studio
