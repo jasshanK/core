@@ -29,6 +29,7 @@ in
    drawio
    obsidian
    sioyek
+   ferdium
 
    # recording 
    obs-studio
