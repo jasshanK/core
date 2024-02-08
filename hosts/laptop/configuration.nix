@@ -15,7 +15,7 @@
     ./../../nixos/system_packages.nix
     ./../../nixos/steam.nix
     ./../../nixos/udev_rules.nix
-    ./../../nixos/docker.nix
+    ./../../nixos/podman.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

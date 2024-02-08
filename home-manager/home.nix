@@ -14,13 +14,13 @@
   ];
 
   nixpkgs = {
-    overlays = [      
-      (final: prev: {
-        stm32cubemx = prev.stm32cubemx.overrideAttrs (old: {
-          version = "6.9.2";
-        });
-      })
-    ];
+  #  overlays = [      
+  #    (final: prev: {
+  #      stm32cubemx = prev.stm32cubemx.overrideAttrs (old: {
+  #        version = "6.9.2";
+  #      });
+  #    })
+  #  ];
 
     # Configure your nixpkgs instance
     config = {
@@ -58,5 +58,5 @@
   systemd.user.startServices = "sd-switch";
   xsession.enable = true;
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }

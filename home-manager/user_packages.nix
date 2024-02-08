@@ -11,13 +11,14 @@ in
    neofetch
    ripgrep
    gnome.gnome-disk-utility
+   distrobox
 
    # electronics 
    pulseview
    serial-studio
    sigrok-cli
    sigrok-firmware-fx2lafw
-   stm32cubemx
+   #stm32cubemx
    kicad
    xschem
    ngspice
