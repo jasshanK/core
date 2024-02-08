@@ -3,7 +3,7 @@
 {
   imports =
     [ 
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     ./bootloader.nix
     ./gpu.nix
     ./syncthing.nix

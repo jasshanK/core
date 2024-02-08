@@ -35,7 +35,9 @@
       bind-key '"' split-window -c '#{pane_current_path}'
       bind-key % split-window -h -c '#{pane_current_path}'
 
-      set-option -g history-limit 20000
+      set-option -g history-limit 10000
+      set -g status-left-length 300
+      set -g repeat-time 700
     '';
   };
 }
