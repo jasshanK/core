@@ -18,7 +18,7 @@ in
    serial-studio
    sigrok-cli
    sigrok-firmware-fx2lafw
-   #stm32cubemx
+   pkgsUnstable.stm32cubemx
    kicad
    xschem
    ngspice

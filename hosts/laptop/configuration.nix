@@ -16,6 +16,7 @@
     ./../../nixos/steam.nix
     ./../../nixos/udev_rules.nix
     ./../../nixos/podman.nix
+    ./../../nixos/nus_vpn.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
