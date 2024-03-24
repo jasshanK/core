@@ -11,7 +11,7 @@ function powermenu {
     elif [ "$selection" = "suspend" ]; then 
         systemctl suspend
     elif [ "$selection" = "lock" ]; then 
-        systemctl suspend | xflock4
+        xflock4
     elif [ "$selection" = "cancel" ]; then 
         return
     fi

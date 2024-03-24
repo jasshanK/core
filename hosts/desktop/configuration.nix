@@ -7,6 +7,7 @@
     ./bootloader.nix
     ./gpu.nix
     ./syncthing.nix
+    ./filesystem.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix

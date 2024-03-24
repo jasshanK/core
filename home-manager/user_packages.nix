@@ -7,8 +7,6 @@ in
 {
   home.packages = with pkgs; [
    # fundamentals
-   nushell
-   neofetch
    ripgrep
    gnome.gnome-disk-utility
    distrobox
@@ -31,6 +29,7 @@ in
    obsidian
    sioyek
    ferdium
+   pkgsUnstable.lapce
 
    # recording 
    obs-studio
