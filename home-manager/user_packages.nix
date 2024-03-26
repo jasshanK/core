@@ -17,7 +17,7 @@ in
    sigrok-cli
    sigrok-firmware-fx2lafw
    pkgsUnstable.stm32cubemx
-   kicad
+   pkgsUnstable.kicad
    xschem
    ngspice
 

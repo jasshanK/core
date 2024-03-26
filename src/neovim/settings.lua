@@ -13,6 +13,7 @@ opt.clipboard = "unnamedplus"
 -- UI
 opt.termguicolors = true
 opt.relativenumber = true
+opt.number = true
 
 -- QoL
 opt.incsearch = true

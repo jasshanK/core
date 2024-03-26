@@ -28,6 +28,7 @@ in
         luafile /home/jasshank/core/src/neovim/remap.lua
         luafile /home/jasshank/core/src/neovim/colours.lua
         luafile /home/jasshank/core/src/neovim/lsp.lua
+        luafile /home/jasshank/core/src/neovim/autocmp.lua
         luafile /home/jasshank/core/src/neovim/telescope.lua
         luafile /home/jasshank/core/src/neovim/harpoon.lua
         luafile /home/jasshank/core/src/neovim/undotree.lua
@@ -35,14 +36,15 @@ in
 
     plugins = with allPlugins; [
       # lsp
-      vim-nix
-      nvim-lspconfig
-      nvim-cmp
-      cmp-buffer
-      cmp-path
-      cmp-nvim-lua
-      cmp-nvim-lsp
-      cmp_luasnip
+      nvim-lspconfig # help with lspconfig
+
+      nvim-cmp # autocomplete functionality 
+      cmp-nvim-lsp # sources and runs the completions from the language servers
+      cmp-buffer # buffer word completions 
+      cmp-path # path completions 
+
+      luasnip # snippets
+      cmp_luasnip # snippet completion
 
       # syntax highlighting
       nvim-treesitter.withAllGrammars
@@ -57,11 +59,15 @@ in
 
       # colours
       moonfly-nvim
+
+      # QoL
+      telescope-ui-select-nvim
     ];
 
     # lsp installation 
     extraPackages = with pkgs; [
       rnix-lsp
+      lua-language-server
     ];
   };
 }
