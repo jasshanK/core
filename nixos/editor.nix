@@ -4,8 +4,17 @@
     enable = true;
   };
 
+  programs.fzf = {
+      fuzzyCompletion = true;
+      keybindings = true;
+  };
+
   environment.interactiveShellInit = ''
     eval "$(starship init bash)"
+    if command -v fzf-share >/dev/null; then
+      source "$(fzf-share)/key-bindings.bash"
+      source "$(fzf-share)/completion.bash"
+    fi
   '';
 
   environment.variables.EDITOR = "nvim";

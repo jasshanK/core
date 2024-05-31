@@ -180,5 +180,8 @@
 
 # Atmel AVR Dragon
     ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2107", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1", ENV{ID_MM_PORT_IGNORE}="1"
+
+# ScopeFun V1.5
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="16d0", ATTR{idProduct}=="0807", MODE:="666"
   '';
 }
