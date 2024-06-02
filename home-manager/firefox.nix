@@ -7,7 +7,6 @@ in
 {
   programs.firefox = {
     enable = true;
-    package = pkgsUnstable.firefox;
     profiles.carboncopy = {
       settings = {
         "darkmode" = true;

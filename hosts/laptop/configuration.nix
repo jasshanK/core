@@ -6,6 +6,7 @@
     /etc/nixos/hardware-configuration.nix
     ./bootloader.nix
     ./power.nix
+    ./gpu.nix
     ./syncthing.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
