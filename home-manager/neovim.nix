@@ -66,7 +66,7 @@ in
 
     # lsp installation 
     extraPackages = with pkgs; [
-      rnix-lsp
+      nixel
       lua-language-server
     ];
   };
