@@ -8,13 +8,11 @@
 
     alacritty
     starship 
+
     fzf
     busybox 
+    mlocate
+    shellcheck
     nmap
   ];
-
-  services.softether = {
-      enable = true;
-      vpnclient.enable = true;
-  };
 }

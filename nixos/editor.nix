@@ -15,6 +15,10 @@
       source "$(fzf-share)/key-bindings.bash"
       source "$(fzf-share)/completion.bash"
     fi
+
+    function boom() {
+      . /home/jasshank/core/src/scripts/boom.sh $1
+    }
   '';
 
   environment.variables.EDITOR = "nvim";

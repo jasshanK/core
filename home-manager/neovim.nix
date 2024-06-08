@@ -66,7 +66,7 @@ in
 
     # lsp installation 
     extraPackages = with pkgs; [
-      nixel
+      nixd
       lua-language-server
     ];
   };

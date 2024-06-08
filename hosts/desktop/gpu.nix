@@ -5,6 +5,9 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      libvdpau-va-gl
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
