@@ -2,7 +2,7 @@
 
 find_dir() {
     local dir
-    dir=$(find $HOME -maxdepth 2 -type d  | fzf +m)
+    dir=$(find $HOME -maxdepth 3 -type d  | fzf +m)
 
     echo $dir
 }

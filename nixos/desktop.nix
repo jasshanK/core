@@ -5,8 +5,7 @@
 
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
 
     desktopManager = {
       xterm.enable = false;
@@ -18,8 +17,6 @@
     };
 
     displayManager = {
-      defaultSession = "xfce+dwm";
-
       lightdm = {
         enable = true;
         greeters.slick = {
@@ -31,6 +28,11 @@
 
     windowManager.dwm.enable = true;
   };
+
+  services.displayManager = {
+    defaultSession = "xfce+dwm";
+  };
+
 
   sound.mediaKeys.enable = true;
 

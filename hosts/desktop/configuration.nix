@@ -8,10 +8,10 @@
     ./gpu.nix
     ./syncthing.nix
     ./filesystem.nix
+    ./virtualisation.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix
-    ./../../nixos/virt.nix
     ./../../nixos/desktop.nix
     ./../../nixos/system_packages.nix
     ./../../nixos/steam.nix

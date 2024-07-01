@@ -5,6 +5,6 @@
     home = "/home/jasshank";
     isNormalUser = true;
     description = "Jasshan Kumeresh";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm"];
   };
 }

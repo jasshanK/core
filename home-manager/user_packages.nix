@@ -23,13 +23,13 @@ in
 
    # general apps
    pkgsUnstable.thunderbird
-   vscode-fhs
    pkgsUnstable.prusa-slicer
    drawio
    obsidian
    sioyek
    ferdium
    pkgsUnstable.lapce
+   vscode-fhs
 
    # recording 
    obs-studio
