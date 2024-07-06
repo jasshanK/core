@@ -1,15 +1,11 @@
 #!/bin/sh
 
 interval=0
+low_batt_value=20
 
 # colors 
-black=#1e222a
-green=#7eca9c
 white=#abb2bf
-grey=#282c34
-blue=#7aa2f7
 red=#d47d85
-darkblue=#668ee3
 
 sound() {
     mute="$(amixer get Master | tail -2 | grep -c "\[on\]" || "2")"
@@ -32,7 +28,16 @@ battery() {
 		Full) symbol="";;
 	esac
 
-	printf "^c$white^   ^d^ $capacity$symbol"
+    batt_colour=$white
+    icon=
+    if [ $((capacity)) -lt $low_batt_value ]; then 
+        batt_colour=$red
+        if [ $((interval % 2)) -eq 0 ]; then
+            icon=" "
+        fi
+    fi
+
+	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol"
 }
 
 wlan() {
