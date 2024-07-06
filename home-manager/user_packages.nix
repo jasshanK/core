@@ -22,13 +22,12 @@ in
    ngspice
 
    # general apps
+   tlaplusToolbox
+   sioyek
    pkgsUnstable.thunderbird
    pkgsUnstable.prusa-slicer
    drawio
    obsidian
-   sioyek
-   ferdium
-   pkgsUnstable.lapce
    vscode-fhs
 
    # recording 
