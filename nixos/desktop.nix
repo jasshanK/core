@@ -12,8 +12,7 @@
       xfce = {
         enable = true;
         noDesktop = true;
-        enableXfwm = false;
-      };
+        enableXfwm = false; };
     };
 
     displayManager = {
@@ -32,7 +31,6 @@
   services.displayManager = {
     defaultSession = "xfce+dwm";
   };
-
 
   sound.mediaKeys.enable = true;
 
@@ -73,7 +71,6 @@
     bluez
     pavucontrol
     brightnessctl
-    flameshot
   ];
 }
 
