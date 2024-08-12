@@ -61,8 +61,8 @@
     pulse.enable = true;
   };
 
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.disableWhileTyping = true;
+  services.libinput.enable = true;
+  services.libinput.touchpad.disableWhileTyping = true;
 
   nixpkgs.config.allowUnfree = true;
 
