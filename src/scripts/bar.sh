@@ -20,21 +20,27 @@ battery() {
 	capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
 	status="$(cat /sys/class/power_supply/BAT1/status)"
 	symbol=""
-
-	case $status in
-		"Not charging") symbol="+";;
-		"Charging") symbol="+";;
-		Discharging) symbol="-";;
-		Full) symbol="";;
-	esac
-
     batt_colour=$white
     icon=
-    if [ $((capacity)) -lt $low_batt_value ]; then 
-        batt_colour=$red
-        if [ $((interval % 2)) -eq 0 ]; then
-            icon=" "
+
+    if [ $((capacity)) -eq " " ]; then
+        case $status in
+            "Not charging") symbol="-";;
+            "Charging") symbol="+";;
+            Discharging) symbol="-";;
+            Full) symbol="";;
+        esac
+
+        if [ $((capacity)) -lt $low_batt_value ]; then 
+            batt_colour=$red
+            if [ $((interval % 2)) -eq 0 ]; then
+                icon=" "
+            fi
         fi
+    else
+        icon=" "
+        capacity=" "
+        symbol=" "
     fi
 
 	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol"

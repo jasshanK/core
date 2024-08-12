@@ -32,6 +32,7 @@ in
         luafile /home/jasshank/core/src/neovim/telescope.lua
         luafile /home/jasshank/core/src/neovim/harpoon.lua
         luafile /home/jasshank/core/src/neovim/undotree.lua
+        luafile /home/jasshank/core/src/neovim/conjure.lua
     '';
 
     plugins = with allPlugins; [
@@ -62,6 +63,10 @@ in
 
       # QoL
       telescope-ui-select-nvim
+
+      # REPL-like
+      conjure
+      cmp-conjure
     ];
 
     # lsp installation 

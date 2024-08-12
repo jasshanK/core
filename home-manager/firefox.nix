@@ -22,7 +22,7 @@ in
       ];
 
       search = {
-        default = "DuckDuckGo";
+        default = "Google";
         engines = {
           "Nix Packages" = {
             urls = [{
