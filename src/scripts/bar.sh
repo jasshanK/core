@@ -23,7 +23,11 @@ battery() {
     batt_colour=$white
     icon=
 
-    if [ $((capacity)) -eq " " ]; then
+    if [ $((capacity)) == " " ]; then
+        icon=" "
+        capacity=" "
+        symbol=" "
+    else
         case $status in
             "Not charging") symbol="-";;
             "Charging") symbol="+";;
@@ -37,10 +41,6 @@ battery() {
                 icon=" "
             fi
         fi
-    else
-        icon=" "
-        capacity=" "
-        symbol=" "
     fi
 
 	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol"
