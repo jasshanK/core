@@ -25,6 +25,7 @@ in
 
     extraConfig = ''
         luafile /home/jasshank/core/src/neovim/settings.lua
+        luafile /home/jasshank/core/src/neovim/treesitter.lua
         luafile /home/jasshank/core/src/neovim/remap.lua
         luafile /home/jasshank/core/src/neovim/colours.lua
         luafile /home/jasshank/core/src/neovim/lsp.lua

@@ -17,17 +17,20 @@ sound() {
 }
 
 battery() {
-	capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
-	status="$(cat /sys/class/power_supply/BAT1/status)"
+    capacity=""
+    status=""
 	symbol=""
     batt_colour=$white
     icon=
 
-    if [ $((capacity)) == " " ]; then
+    if [ -z $(ls -A /sys/class/power_supply/) ]; then
         icon=" "
         capacity=" "
         symbol=" "
     else
+        capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
+        status="$(cat /sys/class/power_supply/BAT1/status)"
+
         case $status in
             "Not charging") symbol="-";;
             "Charging") symbol="+";;
