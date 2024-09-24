@@ -57,7 +57,7 @@
     description = "service for dwm status bar";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
-    path = [ pkgs.xorg.xsetroot pkgs.alsa-utils];
+    path = [ pkgs.xorg.xsetroot pkgs.alsa-utils pkgs.networkmanager ];
     serviceConfig = {
       Type="simple";
       passEnvironment = "DISPLAY";

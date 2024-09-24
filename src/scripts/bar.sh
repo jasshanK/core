@@ -46,13 +46,15 @@ battery() {
         fi
     fi
 
-	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol"
+	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol $delimiter"
 }
 
 wlan() {
+    ssid="$(nmcli -t -f name,device connection show --active | grep -v lo | cut -d\: -f1)"
+
 	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c$white^ 󰤨  ^d^%s" " ^c$white^Connected" ;;
-	down) printf "^c$white^ 󰤭  ^d^%s" " ^c$white^Disconnected" ;;
+	    up) printf "^c$white^ 󰤨  ^d^%s" " ^c$white^$ssid" ;;
+	    down) printf "^c$white^ 󰤭  ^d^%s" ;;
 	esac
 } 
 
@@ -70,7 +72,7 @@ while true; do
 	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
 	interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(battery) $(delimiter) $(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
+    sleep 1 && xsetroot -name "$(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
 
 
 done

@@ -1,8 +1,12 @@
 #!/bin/sh
 
+font="firamono:size=13"
+black="#000000"
+white="#abb2bf"
+
 function powermenu {
     options="cancel\nshutdown\nreboot\nsuspend\nlock"
-    selection=$(echo -e $options | dmenu -fn "firamono:size=13")
+    selection=$(echo -e $options | dmenu -fn $font -nb $black -nf $white -sb $white -sf $black)
 
     if [ "$selection" = "shutdown" ]; then 
         poweroff
