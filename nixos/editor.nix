@@ -19,6 +19,8 @@
     function boom() {
       . /home/jasshank/core/src/scripts/boom.sh $1
     }
+
+    alias noter=". /home/jasshank/core/src/scripts/noter.sh"
   '';
 
   environment.variables.EDITOR = "nvim";

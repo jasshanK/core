@@ -22,6 +22,8 @@ in
    ngspice
 
    # general apps
+   vesktop
+   telegram-desktop
    tlaplusToolbox
    sioyek
    pkgsUnstable.thunderbird

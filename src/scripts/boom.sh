@@ -15,8 +15,8 @@ if [ "$selected_dir" == "" ]; then
 fi
 
 case $1 in
-    "t" )
-        tmux new-session -c $selected_dir ;; 
-    * )
+    "-n" )
         cd $selected_dir ;;
+    * )
+        tmux new-session -c $selected_dir ;; 
 esac

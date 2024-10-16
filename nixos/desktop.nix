@@ -28,6 +28,8 @@
     windowManager.dwm.enable = true;
   };
 
+  environment.xfce.excludePackages = [ pkgs.xfce.xfce4-notifyd ];
+
   services.displayManager = {
     defaultSession = "xfce+dwm";
   };
