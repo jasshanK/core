@@ -7,6 +7,10 @@ low_batt_value=20
 white=#abb2bf
 red=#d47d85
 
+delimiter() {
+    printf "^c$white^ | ^d^"
+}
+
 sound() {
     mute="$(amixer get Master | tail -2 | grep -c "\[on\]" || "2")"
 
@@ -23,7 +27,7 @@ battery() {
     batt_colour=$white
     icon=
 
-    if [ -z $(ls -A /sys/class/power_supply/) ]; then
+    if [[ -z $(ls -A /sys/class/power_supply/) ]]; then
         icon=" "
         capacity=" "
         symbol=" "
@@ -34,8 +38,8 @@ battery() {
         case $status in
             "Not charging") symbol="-";;
             "Charging") symbol="+";;
-            Discharging) symbol="-";;
-            Full) symbol="";;
+            "Discharging") symbol="-";;
+            "Full") symbol="";;
         esac
 
         if [ $((capacity)) -lt $low_batt_value ]; then 
@@ -46,7 +50,7 @@ battery() {
         fi
     fi
 
-	printf "^c$batt_colour^ $icon ^d^ $capacity$symbol $delimiter"
+    printf "^c$batt_colour^ $icon ^d^ $capacity$symbol $(delimiter)"
 }
 
 wlan() {
@@ -63,16 +67,12 @@ clock() {
 	printf "^c$white^ $(date '+%H:%M')  "
 }
 
-delimiter() {
-    printf "^c$white^ | ^d^"
-}
-
 while true; do
 
 	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
 	interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
+    sleep 1 && xsetroot -name "$(battery) $(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
 
 
 done
