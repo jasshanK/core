@@ -7,6 +7,9 @@ lspconfig.elixirls.setup {
     cmd = { string.sub(elixirls_install_path, 1, string.len(elixirls_install_path) - 14) .. "/lib/language_server.sh" };
     capabilities = capabilities
 }
+lspconfig.marksman.setup {
+    capabilities = capabilities
+}
 lspconfig.nixd.setup {
     capabilities = capabilities
 }

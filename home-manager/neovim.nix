@@ -74,6 +74,7 @@ in
     extraPackages = with pkgs; [
       nixd
       lua-language-server
+      marksman
     ];
   };
 }
