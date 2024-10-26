@@ -5,7 +5,7 @@ local elixirls_install_path = vim.fn.exepath('elixir-ls')
 
 lspconfig.elixirls.setup {
     cmd = { string.sub(elixirls_install_path, 1, string.len(elixirls_install_path) - 14) .. "/lib/language_server.sh" };
-    capabilities = capabilities
+    capabilities = capabilities,
 }
 lspconfig.marksman.setup {
     capabilities = capabilities
