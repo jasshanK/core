@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 let 
   pkgsUnstable = import <nixpkgs-unstable> {
     config.allowUnfree = true;
@@ -18,7 +18,6 @@ in
    sigrok-firmware-fx2lafw
    pkgsUnstable.stm32cubemx
    pkgsUnstable.kicad
-   xschem
    ngspice
 
    # general apps
@@ -26,6 +25,7 @@ in
    telegram-desktop
    tlaplusToolbox
    sioyek
+   evince
    pkgsUnstable.thunderbird
    pkgsUnstable.prusa-slicer
    drawio

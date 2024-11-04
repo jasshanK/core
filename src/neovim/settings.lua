@@ -6,6 +6,8 @@ opt.autoindent = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
+opt.wrap = true
+opt.linebreak = true
 
 -- clipboard 
 opt.clipboard = "unnamedplus"

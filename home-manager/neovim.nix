@@ -34,6 +34,7 @@ in
         luafile /home/jasshank/core/src/neovim/harpoon.lua
         luafile /home/jasshank/core/src/neovim/undotree.lua
         luafile /home/jasshank/core/src/neovim/conjure.lua
+        luafile /home/jasshank/core/src/neovim/markdown.lua
     '';
 
     plugins = with allPlugins; [

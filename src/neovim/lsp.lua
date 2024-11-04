@@ -10,6 +10,9 @@ lspconfig.elixirls.setup {
 lspconfig.marksman.setup {
     capabilities = capabilities
 }
+lspconfig.nushell.setup {
+    capabilities = capabilities
+}
 lspconfig.nixd.setup {
     capabilities = capabilities
 }
