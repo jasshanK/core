@@ -18,5 +18,9 @@ case $1 in
     "-n" )
         cd $selected_dir ;;
     * )
-        tmux new-session -c $selected_dir ;; 
+        if [ "$TMUX" == "" ]; then
+            tmux new-session -c $selected_dir
+        else 
+            echo "boom: In TMux session, use -n flag"
+        fi
 esac

@@ -35,6 +35,10 @@ in
    # recording 
    obs-studio
    gromit-mpx
+
+   # minecraft
+   ferium 
+   prismlauncher
  ];
 }
 
