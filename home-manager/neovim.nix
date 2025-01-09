@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let customPlugins = {
-  moonfly-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  moonfly-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "moonfly.nvim";
     version = "2023-05-20";
     src = pkgs.fetchFromGitHub {
@@ -25,24 +25,29 @@ in
 
     extraConfig = ''
         luafile /home/jasshank/core/src/neovim/settings.lua
+        luafile /home/jasshank/core/src/neovim/treesitter.lua
         luafile /home/jasshank/core/src/neovim/remap.lua
         luafile /home/jasshank/core/src/neovim/colours.lua
         luafile /home/jasshank/core/src/neovim/lsp.lua
+        luafile /home/jasshank/core/src/neovim/autocmp.lua
         luafile /home/jasshank/core/src/neovim/telescope.lua
         luafile /home/jasshank/core/src/neovim/harpoon.lua
         luafile /home/jasshank/core/src/neovim/undotree.lua
+        luafile /home/jasshank/core/src/neovim/conjure.lua
+        luafile /home/jasshank/core/src/neovim/markdown.lua
     '';
 
     plugins = with allPlugins; [
       # lsp
-      vim-nix
-      nvim-lspconfig
-      nvim-cmp
-      cmp-buffer
-      cmp-path
-      cmp-nvim-lua
-      cmp-nvim-lsp
-      cmp_luasnip
+      nvim-lspconfig # help with lspconfig
+
+      nvim-cmp # autocomplete functionality 
+      cmp-nvim-lsp # sources and runs the completions from the language servers
+      cmp-buffer # buffer word completions 
+      cmp-path # path completions 
+
+      luasnip # snippets
+      cmp_luasnip # snippet completion
 
       # syntax highlighting
       nvim-treesitter.withAllGrammars
@@ -57,11 +62,20 @@ in
 
       # colours
       moonfly-nvim
+
+      # QoL
+      telescope-ui-select-nvim
+
+      # REPL-like
+      #conjure
+      #cmp-conjure
     ];
 
     # lsp installation 
     extraPackages = with pkgs; [
-      rnix-lsp
+      nixd
+      lua-language-server
+      marksman
     ];
   };
 }

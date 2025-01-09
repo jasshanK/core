@@ -1,20 +1,26 @@
-{ config, pkgs, ... }: 
+{ pkgs, ... }: 
 {
-  imports = [
-    #./picoscope/picoscope.nix
-  ];
+  environment.variables = {
+    WEBKIT_DISABLE_DMABUF_RENDERER = "1";
+  };
+
+  services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # fundamentals
+    nyxt
+
+    htop
+
+    unzip 
+    zip
+
     alacritty
-    firefox
     starship 
 
-    # desktop experience
-    dmenu
-    bluez
-    pavucontrol
-    brightnessctl
+    fzf
+    busybox 
+    mlocate
+    shellcheck
+    nmap
   ];
-
 }

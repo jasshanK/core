@@ -1,40 +1,40 @@
 { config, pkgs, ... }:
 {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-
-    swww
-
-    rofi-wayland
-  ];
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+
     desktopManager = {
       xterm.enable = false;
       xfce = {
         enable = true;
         noDesktop = true;
-        enableXfwm = false;
-      };
+        enableXfwm = false; };
     };
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeters.slick = {
+          enable = true;
+          theme.name = "Adwaita-dark";
+        };
+      };
     };
 
     windowManager.dwm.enable = true;
   };
+
+  environment.xfce.excludePackages = [ pkgs.xfce.xfce4-notifyd ];
+
+  services.displayManager = {
+    defaultSession = "xfce+dwm";
+  };
+
+  services.gnome.gnome-keyring.enable = true;
 
   # DWM and dmenu custom build
   nixpkgs.overlays = [
@@ -50,19 +50,27 @@
       });
     })
   ];
+
   # status bar init
   systemd.user.services.status_bar = {
     enable = true;
     description = "service for dwm status bar";
     wantedBy = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
-    path = [ pkgs.xorg.xsetroot pkgs.alsa-utils];
+    path = [ pkgs.xorg.xsetroot pkgs.alsa-utils pkgs.networkmanager ];
     serviceConfig = {
       Type="simple";
       passEnvironment = "DISPLAY";
-      ExecStart = "/home/jasshank/scripts/bar.sh";
+      ExecStart = "/home/jasshank/core/src/scripts/bar.sh";
       Restart = "on-failure";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    dmenu
+    bluez
+    pavucontrol
+    brightnessctl
+  ];
 }
 

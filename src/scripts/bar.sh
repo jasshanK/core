@@ -1,15 +1,15 @@
 #!/bin/sh
 
 interval=0
+low_batt_value=20
 
 # colors 
-black=#1e222a
-green=#7eca9c
 white=#abb2bf
-grey=#282c34
-blue=#7aa2f7
 red=#d47d85
-darkblue=#668ee3
+
+delimiter() {
+    printf "^c$white^ | ^d^"
+}
 
 sound() {
     mute="$(amixer get Master | tail -2 | grep -c "\[on\]" || "2")"
@@ -21,24 +21,44 @@ sound() {
 }
 
 battery() {
-	capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
-	status="$(cat /sys/class/power_supply/BAT1/status)"
+    capacity=""
+    status=""
 	symbol=""
+    batt_colour=$white
+    icon=
 
-	case $status in
-		"Not charging") symbol="+";;
-		"Charging") symbol="+";;
-		Discharging) symbol="-";;
-		Full) symbol="";;
-	esac
+    if [[ -z $(ls -A /sys/class/power_supply/) ]]; then
+        icon=" "
+        capacity=" "
+        symbol=" "
+    else
+        capacity="$(cat /sys/class/power_supply/BAT1/capacity)"
+        status="$(cat /sys/class/power_supply/BAT1/status)"
 
-	printf "^c$white^   ^d^ $capacity$symbol"
+        case $status in
+            "Not charging") symbol="-";;
+            "Charging") symbol="+";;
+            "Discharging") symbol="-";;
+            "Full") symbol="";;
+        esac
+
+        if [ $((capacity)) -lt $low_batt_value ]; then 
+            batt_colour=$red
+            if [ $((interval % 2)) -eq 0 ]; then
+                icon=" "
+            fi
+        fi
+    fi
+
+    printf "^c$batt_colour^ $icon ^d^ $capacity$symbol $(delimiter)"
 }
 
 wlan() {
+    ssid="$(nmcli -t -f name,device connection show --active | grep -v lo | cut -d\: -f1)"
+
 	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c$white^ 󰤨  ^d^%s" " ^c$white^Connected" ;;
-	down) printf "^c$white^ 󰤭  ^d^%s" " ^c$white^Disconnected" ;;
+	    up) printf "^c$white^ 󰤨  ^d^%s" " ^c$white^$ssid" ;;
+	    down) printf "^c$white^ 󰤭  ^d^%s" ;;
 	esac
 } 
 
@@ -47,16 +67,12 @@ clock() {
 	printf "^c$white^ $(date '+%H:%M')  "
 }
 
-delimiter() {
-    printf "^c$white^ | ^d^"
-}
-
 while true; do
 
 	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
 	interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(battery) $(delimiter) $(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
+    sleep 1 && xsetroot -name "$(battery) $(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
 
 
 done
