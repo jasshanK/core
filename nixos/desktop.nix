@@ -34,8 +34,6 @@
     defaultSession = "xfce+dwm";
   };
 
-  sound.mediaKeys.enable = true;
-
   services.gnome.gnome-keyring.enable = true;
 
   # DWM and dmenu custom build

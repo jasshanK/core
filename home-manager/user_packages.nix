@@ -8,7 +8,7 @@ in
   home.packages = with pkgs; [
    # fundamentals
    ripgrep
-   gnome.gnome-disk-utility
+   gnome-disk-utility
    distrobox
 
    # electronics 
