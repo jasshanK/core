@@ -8,6 +8,8 @@
     ./power.nix
     ./gpu.nix
     ./syncthing.nix
+    ./virtualisation.nix
+    ./filesystem.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix
