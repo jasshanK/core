@@ -21,6 +21,8 @@ in
    ngspice
 
    # general apps
+   qbittorrent
+   vlc
    vesktop
    telegram-desktop
    tlaplusToolbox

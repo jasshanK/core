@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 

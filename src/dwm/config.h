@@ -60,7 +60,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *powermenucmd[] = { "/home/jasshank/core/src/scripts/powermenu.sh", NULL };
-static const char *selectormenucmd[] = { "/home/jasshank/core/src/scripts/selector.sh", NULL };
+static const char *websearchcmd[] = { "/home/jasshank/core/src/scripts/web.sh", NULL };
 
 static const char *upvol[]   = { "amixer", "set", "Master", "300+",     NULL };
 static const char *downvol[] = { "amixer", "set", "Master", "300-",     NULL };
@@ -72,7 +72,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      			spawn,          {.v = dmenucmd} },
 	{ MODKEY|ShiftMask,             XK_p,      			spawn,          {.v = powermenucmd} },
-	{ MODKEY,                       XK_s,      			spawn,          {.v = selectormenucmd} },
+	{ MODKEY,                       XK_s,      			spawn,          {.v = websearchcmd} },
 	{ MODKEY,                       XK_grave,  			spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_q, 	   			spawn,          {.v = browsercmd } },
 	{ 0,                       	XF86XK_MonBrightnessUp, 	spawn,      {.v = brightnessup } },
