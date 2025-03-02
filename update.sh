@@ -2,6 +2,7 @@ git add .
 
 echo "[1] Laptop"
 echo "[2] Desktop"
+echo "[3] Cube"
 echo "Select: "
 read option 
 
@@ -13,6 +14,9 @@ case $option in
     "2" )
         machine="desktop"
         echo "Desktop selected" ;;
+    "3" )
+        machine="cube"
+        echo "Cube selected" ;;
     * )
         echo "Not a valid option!"
         exit 1

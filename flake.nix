@@ -40,6 +40,11 @@
 
         modules = [ ./hosts/desktop/configuration.nix ];
       };
+      cube = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
+
+        modules = [ ./hosts/cube/configuration.nix ];
+      };
     };
   };
 }

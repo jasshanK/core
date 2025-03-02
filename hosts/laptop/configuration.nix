@@ -67,5 +67,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   system.stateVersion = "23.05";
 }

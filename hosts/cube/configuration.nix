@@ -4,11 +4,9 @@
   imports =
     [ 
     /etc/nixos/hardware-configuration.nix
-    ./bootloader.nix
     ./gpu.nix
+    ./bootloader.nix
     ./syncthing.nix
-    ./filesystem.nix
-    ./virtualisation.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix
@@ -30,7 +28,7 @@
     };
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "cube";
 
   networking.networkmanager.enable = true;
 
@@ -62,8 +60,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   system.stateVersion = "23.05";
 }
