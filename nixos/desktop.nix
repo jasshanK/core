@@ -68,9 +68,15 @@
 
   environment.systemPackages = with pkgs; [
     dmenu
+
     bluez
+    blueman
+
     pavucontrol
+
     brightnessctl
+
+    alsa-utils
   ];
 }
 

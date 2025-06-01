@@ -1,7 +1,4 @@
 {
-  inputs,
-  lib,
-  config,
   pkgs,
   ...
 }:
@@ -50,6 +47,18 @@
   };
 
   programs.home-manager.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Colloid-Dark";
+      package = pkgs.colloid-gtk-theme;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
 
   programs.git = {
     enable = true;
