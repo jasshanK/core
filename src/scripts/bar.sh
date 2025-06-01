@@ -53,26 +53,40 @@ battery() {
     printf "^c$batt_colour^ $icon ^d^ $capacity$symbol $(delimiter)"
 }
 
-wlan() {
-    ssid="$(nmcli -t -f name,device connection show --active | grep -v lo | cut -d\: -f1)"
+network() {
+    is_connected=0
 
-	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	    up) printf "^c$white^ 󰤨  ^d^%s" " ^c$white^$ssid" ;;
-	    down) printf "^c$white^ 󰤭  ^d^%s" ;;
-	esac
+    case "$(cat /sys/class/net/en*/operstate 2>/dev/null)" in
+	    up) 
+            is_connected=1
+
+            printf "^c$white^ 󰤨  ^d^%s" " ^c$white^Ethernet "
+            ;;
+    esac
+
+
+    case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
+        up) 
+            is_connected=1
+
+            ssid="$(nmcli -t -f name,device connection show --active | grep -v -e lo -e Wired | cut -d\: -f 1 | cut -d' ' -f 1)"
+
+            printf "^c$white^ 󰤨  ^d^%s" " ^c$white^$ssid" 
+            ;;
+    esac
+
+    if [ $is_connected == 0 ]; then 
+        printf "^c$white^ 󰤭  ^d^%s" 
+    fi
 } 
 
 clock() {
-	printf "^c$white^ 󱑆 ^d^"
+	printf "^c$white^ $(date '+%d/%m')  "
 	printf "^c$white^ $(date '+%H:%M')  "
 }
 
 while true; do
-
-	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] 
 	interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(battery) $(sound) $(delimiter) $(wlan) $(delimiter) $(clock)"
-
-
+    sleep 1 && xsetroot -name "$(battery) $(sound) $(delimiter) $(network) $(delimiter) $(clock)"
 done
