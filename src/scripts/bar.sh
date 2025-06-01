@@ -27,7 +27,7 @@ battery() {
     batt_colour=$white
     icon=
 
-    if [[ -z $(ls -A /sys/class/power_supply/) ]]; then
+    if [ -z $(ls -A /sys/class/power_supply/) ]; then
         icon=" "
         capacity=" "
         symbol=" "
