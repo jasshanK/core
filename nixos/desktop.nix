@@ -12,7 +12,8 @@
       xfce = {
         enable = true;
         noDesktop = true;
-        enableXfwm = false; };
+        enableXfwm = false; 
+      };
     };
 
     displayManager = {
@@ -20,7 +21,7 @@
         enable = true;
         greeters.slick = {
           enable = true;
-          theme.name = "Adwaita-dark";
+          theme.name = "Colloid-Dark";
         };
       };
     };
