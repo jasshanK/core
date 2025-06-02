@@ -14,6 +14,7 @@ in
         "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
         "browser.startup.firstrunSkipsHomepage" = true;
         "browser.toolbars.bookmarks.visibility" = "never";
+        "browser.newtabpage.enabled" = false;
       };
 
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
@@ -48,7 +49,44 @@ in
       };
 
       userChrome = ''
+        .urlbar-input-box { 
+            text-align: center; 
+        }
 
+        #nav-bar {
+            margin: 8px; 
+        }
+
+        #urlbar:not([focused]) #urlbar-background { 
+            opacity: 0 !important;
+        }
+        
+        * {
+            font-family: "monospace";
+        }
+        
+        #navigator-toolbox {
+            max-height: 0vh;
+        
+            & * {
+                opacity: 0 !important;
+            }
+        }
+        
+        #navigator-toolbox:focus-within {
+            max-height: 100vh;
+            height: auto;
+
+            position: absolute !important;
+            z-index: 9999 !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+        
+            & * {
+                opacity: 1 !important;
+            }
+        }
       '';
 
     }; 
