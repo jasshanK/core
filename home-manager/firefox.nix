@@ -15,6 +15,7 @@ in
         "browser.startup.firstrunSkipsHomepage" = true;
         "browser.toolbars.bookmarks.visibility" = "never";
         "browser.newtabpage.enabled" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
 
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
