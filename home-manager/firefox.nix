@@ -70,10 +70,11 @@ in
             max-height: 0vh;
         
             & * {
+                pointer-events: none;
                 opacity: 0 !important;
             }
         }
-        
+
         #navigator-toolbox:focus-within {
             max-height: 100vh;
             height: auto;
@@ -85,6 +86,7 @@ in
             width: 100% !important;
         
             & * {
+                pointer-events: auto;
                 opacity: 1 !important;
             }
         }

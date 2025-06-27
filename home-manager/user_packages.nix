@@ -3,6 +3,7 @@ let
   pkgsUnstable = import <nixpkgs-unstable> {
     config.allowUnfree = true;
   };
+  jan-beta = import ./jan.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
@@ -26,13 +27,12 @@ in
    vesktop
    telegram-desktop
    tlaplusToolbox
-   sioyek
    evince
-   pkgsUnstable.thunderbird
    pkgsUnstable.prusa-slicer
    drawio
    obsidian
    vscode-fhs
+   jan-beta
 
    # recording 
    obs-studio
