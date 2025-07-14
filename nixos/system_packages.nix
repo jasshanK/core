@@ -2,6 +2,9 @@
 {
   services.flatpak.enable = true;
 
+  programs.nix-ld.enable = true;
+  services.envfs.enable = true;
+
   environment.systemPackages = with pkgs; [
     xfce.thunar
     xfce.thunar-volman
