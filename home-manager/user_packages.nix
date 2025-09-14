@@ -3,7 +3,7 @@ let
   pkgsUnstable = import <nixpkgs-unstable> {
     config.allowUnfree = true;
   };
-  jan-beta = import ./jan.nix { inherit pkgs; };
+    #jan-beta = import ./jan.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
@@ -22,6 +22,7 @@ in
    ngspice
 
    # general apps
+   cloudflare-warp
    qbittorrent
    vlc
    vesktop
@@ -32,7 +33,8 @@ in
    drawio
    obsidian
    vscode-fhs
-   jan-beta
+   slack
+        #jan-beta
 
    # recording 
    obs-studio
