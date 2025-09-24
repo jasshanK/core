@@ -10,6 +10,8 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
 
+    blueberry
+
     htop
 
     unzip 
