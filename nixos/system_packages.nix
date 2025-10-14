@@ -6,6 +6,8 @@
   services.envfs.enable = true;
 
   environment.systemPackages = with pkgs; [
+    podman-compose 
+
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin

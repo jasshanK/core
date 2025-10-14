@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
   fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraMono" ]; })
+    packages = [
+       pkgs.nerd-fonts.fira-mono
     ];
 
     fontconfig = {

@@ -21,6 +21,7 @@ in
    ngspice
 
    # general apps
+   audacity
    cloudflare-warp
    qbittorrent
    vlc
