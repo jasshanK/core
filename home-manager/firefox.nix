@@ -18,13 +18,13 @@ in
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
 
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
         ublock-origin
         translate-web-pages
       ];
 
       search = {
-        default = "Google";
+        default = "google";
         engines = {
           "Nix Packages" = {
             urls = [{
@@ -39,13 +39,13 @@ in
             definedAliases = [ "@np" ];
           };
 
-          "Google".metaData.alias = "@gg";
+          "google".metaData.alias = "@gg";
         };
         force = true;
         order = [
-          "DuckDuckGo"
-          "Nix Packages"
-          "Google"
+          "ddg"
+          "np"
+          "google"
         ];
       };
 
