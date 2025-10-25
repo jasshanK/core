@@ -3,6 +3,7 @@ let
   pkgsUnstable = import <nixpkgs-unstable> {
     config.allowUnfree = true;
   };
+  jan-custom = import ./jan.nix { inherit pkgs; };
 in
 {
   home.packages = with pkgs; [
@@ -35,7 +36,7 @@ in
    obsidian
    vscode-fhs
    slack
-   pkgsUnstable.jan
+   jan-custom
 
    # recording 
    obs-studio
