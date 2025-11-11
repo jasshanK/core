@@ -18,6 +18,7 @@ in
    sigrok-firmware-fx2lafw
    pkgsUnstable.stm32cubemx
    pkgsUnstable.kicad
+   pkgsUnstable.easyeda2kicad
    ngspice
 
    # general apps
