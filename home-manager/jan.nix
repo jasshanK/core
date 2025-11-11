@@ -4,10 +4,10 @@ pkgs
 
 let
     pname = "jan";
-    version = "0.6.9";
+    version = "0.7.2";
     src = pkgs.fetchurl {
         url = "https://github.com/menloresearch/jan/releases/download/v${version}/Jan_${version}_amd64.AppImage";
-        hash = "sha256-633tZXjKWwXW7VZoHz8GpGX5GWsEoZM3FbfjUJdntOs=";
+        hash = "sha256-tz0it9NYT+HOjJ0xxsxfTh0Vw0p+Mfp1SZbT5M5DM+0=";
     };
 
     buildInputs = [
