@@ -21,6 +21,8 @@ in
    pkgsUnstable.kicad
    pkgsUnstable.easyeda2kicad
    ngspice
+   pkgsUnstable.rkdeveloptool
+   minicom
 
    # general apps
    audacity
@@ -36,7 +38,7 @@ in
    obsidian
    vscode-fhs
    slack
-   jan-custom
+   antigravity-fhs
 
    # recording 
    obs-studio

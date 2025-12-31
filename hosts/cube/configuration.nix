@@ -15,7 +15,6 @@
     ./../../nixos/steam.nix
     ./../../nixos/udev_rules.nix
     ./../../nixos/podman.nix
-    ./../../nixos/nus_vpn.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -50,7 +49,7 @@
 
   services.printing.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

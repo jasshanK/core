@@ -62,8 +62,10 @@
 
   programs.git = {
     enable = true;
-    userName = "jasshanK";
-    userEmail = "jasshank@gmail.com";
+    settings.user = {
+      name = "jasshanK";
+      email = "jasshank@gmail.com";
+    };
   };
 
   systemd.user.startServices = "sd-switch";
