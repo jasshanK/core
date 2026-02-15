@@ -25,8 +25,9 @@ in
    minicom
 
    # general apps
+   tailscale
+   onlyoffice-desktopeditors
    audacity
-   cloudflare-warp
    qbittorrent
    vlc
    vesktop
@@ -38,7 +39,7 @@ in
    obsidian
    vscode-fhs
    slack
-   antigravity-fhs
+   claude-code
 
    # recording 
    obs-studio

@@ -66,6 +66,7 @@
       name = "jasshanK";
       email = "jasshank@gmail.com";
     };
+    lfs.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
