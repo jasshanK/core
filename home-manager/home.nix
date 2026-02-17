@@ -5,7 +5,6 @@
 {
   imports = [
     ./neovim.nix
-    ./emacs.nix
     ./firefox.nix
     ./dunst.nix
     ./user_packages.nix
