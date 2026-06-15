@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-let 
-  pkgsUnstable = import <nixpkgs-unstable> {
+{ pkgs, pkgsUnstable, ... }:
+let
+  nixpkgs-custom = import (/home/jasshank/nixpkgs-custom) { 
     config.allowUnfree = true;
   };
-  jan-custom = import ./jan.nix { inherit pkgs; };
 in
 {
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
    # fundamentals
    ripgrep
    gnome-disk-utility
@@ -17,12 +16,9 @@ in
    serial-studio
    sigrok-cli
    sigrok-firmware-fx2lafw
-   pkgsUnstable.stm32cubemx
-   pkgsUnstable.kicad
-   pkgsUnstable.easyeda2kicad
    ngspice
-   pkgsUnstable.rkdeveloptool
    minicom
+   nixpkgs-custom.kicad
 
    # comms
    vesktop
@@ -30,6 +26,7 @@ in
    telegram-desktop
 
    # general apps
+   zotero
    evince
    drawio
    obsidian
@@ -41,11 +38,11 @@ in
    tailscale
    qbittorrent
 
-   pkgsUnstable.prusa-slicer
 
    # media
    vlc
    audacity
+
    obs-studio
    gromit-mpx
 
@@ -61,6 +58,10 @@ in
    (pkgs.writeShellScriptBin "media-obs" "exec ${pkgs.obs-studio}/bin/obs \"$@\"")
    (pkgs.writeShellScriptBin "media-pointer" "exec ${pkgs.gromit-mpx}/bin/gromit-mpx \"$@\"")
    (pkgs.writeShellScriptBin "settings-disks" "exec ${pkgs.gnome-disk-utility}/bin/gnome-disks \"$@\"")
- ];
+ ]) ++ (with pkgsUnstable; [
+   easyeda2kicad
+   stm32cubemx
+   rkdeveloptool
+   prusa-slicer
+ ]);
 }
-

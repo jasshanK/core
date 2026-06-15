@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs:  
+  outputs = { self, nixpkgs, unstable, ... } @ inputs:  
   let 
     system = "x86_64-linux";
 
@@ -27,21 +27,29 @@
         allowUnfree = true;
       };
     };
+
+    pkgsUnstable = import unstable {
+      inherit system;
+
+      config = {
+        allowUnfree = true;
+      };
+    };
   in
   {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system pkgsUnstable; };
 
         modules = [ ./hosts/laptop/configuration.nix ];
       };
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system pkgsUnstable; };
 
         modules = [ ./hosts/desktop/configuration.nix ];
       };
       cube = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system pkgsUnstable; };
 
         modules = [ ./hosts/cube/configuration.nix ];
       };

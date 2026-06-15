@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, pkgsUnstable, ... }:
 
 {
   imports =
@@ -8,7 +8,7 @@
     ./gpu.nix
     ./syncthing.nix
     ./filesystem.nix
-    ./virtualisation.nix
+    ./../../nixos/virtualisation.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
     ./../../nixos/user.nix
@@ -23,7 +23,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs pkgsUnstable; };
     users = {
       jasshank = import ./../../home-manager/home.nix;
     };
@@ -62,7 +62,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   system.stateVersion = "23.05";
 }
