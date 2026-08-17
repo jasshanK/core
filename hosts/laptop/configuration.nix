@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports =
@@ -66,7 +66,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = inputs.unstable.legacyPackages.${pkgs.system}.linuxPackages_latest;
 
-  system.stateVersion = "23.05";
+  networking.firewall.allowedUDPPorts = [ 8888 8889 ];
+
+  system.stateVersion = "25.11";
 }

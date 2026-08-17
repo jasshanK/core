@@ -75,7 +75,11 @@ in
             }
         }
 
-        #navigator-toolbox:focus-within {
+        #navigator-toolbox:focus-within,
+        #navigator-toolbox:hover,
+        #navigator-toolbox:has([open="true"]),
+        #navigator-toolbox:has([panelopen="true"]),
+        #main-window:has(#unified-extensions-panel[panelopen="true"]) #navigator-toolbox {
             max-height: 100vh;
             height: auto;
 
@@ -84,6 +88,9 @@ in
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
+
+            background-color: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(12px) invert(10%) !important;
         
             & * {
                 pointer-events: auto;

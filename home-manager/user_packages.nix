@@ -35,7 +35,6 @@ in
    vscode-fhs
    claude-code
 
-   tailscale
    qbittorrent
 
 

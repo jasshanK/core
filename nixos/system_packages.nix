@@ -9,6 +9,12 @@
 
   hardware.bluetooth.enable = true;
 
+  services.tailscale.enable = true;
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  services.resolved.enable = true;
+  networking.firewall.checkReversePath = "loose";
+
   environment.systemPackages = with pkgs; [
     podman-compose 
 
@@ -23,6 +29,7 @@
 
     alacritty
     starship 
+    xclip
 
     fzf
     busybox 
