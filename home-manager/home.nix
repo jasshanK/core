@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsUnstable,
   ...
 }:
 {
@@ -11,15 +12,6 @@
   ];
 
   nixpkgs = {
-  #  overlays = [      
-  #    (final: prev: {
-  #      stm32cubemx = prev.stm32cubemx.overrideAttrs (old: {
-  #        version = "6.9.2";
-  #      });
-  #    })
-  #  ];
-
-    # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
       allowBroken = true;

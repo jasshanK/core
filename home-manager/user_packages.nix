@@ -1,9 +1,4 @@
 { pkgs, pkgsUnstable, ... }:
-let
-  nixpkgs-custom = import (/home/jasshank/nixpkgs-custom) { 
-    config.allowUnfree = true;
-  };
-in
 {
   home.packages = (with pkgs; [
    # fundamentals
@@ -18,7 +13,7 @@ in
    sigrok-firmware-fx2lafw
    ngspice
    minicom
-   nixpkgs-custom.kicad
+   kicad
 
    # comms
    vesktop
@@ -36,7 +31,6 @@ in
    claude-code
 
    qbittorrent
-
 
    # media
    vlc
