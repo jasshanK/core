@@ -1,15 +1,7 @@
-local configs = require("nvim-treesitter.configs")
-configs.setup {
-    auto_install = false,
-    ensure_installed = {},
-    indent = {
-        enable = true,
-    },
-    highlight = {
-        enable = true,
-    },
-    rainbow = {
-        enable = true,
-        extended_mode = true,
-    }
-}
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

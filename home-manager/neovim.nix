@@ -65,10 +65,6 @@ in
 
       # QoL
       telescope-ui-select-nvim
-
-      # REPL-like
-      #conjure
-      #cmp-conjure
     ];
 
     # lsp installation 
