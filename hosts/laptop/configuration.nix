@@ -64,6 +64,10 @@
   services.libinput.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
+  environment.extraInit = ''
+    export XDG_DATA_DIRS="$XDG_DATA_DIRS:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   boot.kernelPackages = inputs.unstable.legacyPackages.${pkgs.system}.linuxPackages_latest;
