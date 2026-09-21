@@ -18,7 +18,7 @@
   environment.systemPackages = with pkgs; [
     podman-compose 
 
-    blueberry
+    blueman
     pavucontrol
     brightnessctl
 
@@ -38,7 +38,7 @@
     nmap
 
     (pkgs.writeShellScriptBin "settings-sound" "exec ${pkgs.pavucontrol}/bin/pavucontrol \"$@\"")
-    (pkgs.writeShellScriptBin "settings-bluetooth" "exec ${pkgs.blueberry}/bin/blueberry \"$@\"")
+    (pkgs.writeShellScriptBin "settings-bluetooth" "exec ${pkgs.blueman}/bin/blueman \"$@\"")
     (pkgs.writeShellScriptBin "settings-display" "exec ${pkgs.xfce.xfce4-settings}/bin/xfce4-display-settings \"$@\"")
   ];
 }
