@@ -9,6 +9,7 @@
     ./gpu.nix
     ./syncthing.nix
     ./filesystem.nix
+    ./nebula.nix
     ./../../nixos/virtualisation.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix
@@ -64,6 +65,8 @@
   services.libinput.enable = true;
   services.libinput.touchpad.disableWhileTyping = true;
 
+  services.envfs.enable = true;
+
   environment.extraInit = ''
     export XDG_DATA_DIRS="$XDG_DATA_DIRS:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
   '';
@@ -72,7 +75,7 @@
 
   boot.kernelPackages = inputs.unstable.legacyPackages.${pkgs.system}.linuxPackages_latest;
 
-  networking.firewall.allowedUDPPorts = [ 8888 8889 ];
+  networking.firewall.allowedUDPPorts = [ 8888 8889 8851 8850 ];
 
   system.stateVersion = "25.11";
 }
