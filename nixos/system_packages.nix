@@ -1,4 +1,4 @@
-{ pkgs, pkgsUnstable, ... }: 
+{ pkgs, inputs, system, ... }: 
 {
   services.flatpak.enable = true;
 
@@ -37,7 +37,7 @@
     shellcheck
     nmap
 
-    pkgsUnstable.herdr
+    inputs.herdr.packages.${system}.default
 
     (pkgs.writeShellScriptBin "settings-sound" "exec ${pkgs.pavucontrol}/bin/pavucontrol \"$@\"")
     (pkgs.writeShellScriptBin "settings-bluetooth" "exec ${pkgs.blueman}/bin/blueman \"$@\"")
