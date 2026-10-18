@@ -8,6 +8,7 @@
     ./gpu.nix
     ./syncthing.nix
     ./filesystem.nix
+    ./nebula.nix
     ./../../nixos/virtualisation.nix
     ./../../nixos/editor.nix
     ./../../nixos/fonts.nix

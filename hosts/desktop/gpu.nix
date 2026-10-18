@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   hardware.opengl.enable = true;
   hardware.graphics = {
@@ -8,6 +8,8 @@
       libvdpau-va-gl
     ];
   };
+
+  nixpkgs.config.rocmSupport = true;
 }
 
 
