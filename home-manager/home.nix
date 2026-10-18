@@ -9,6 +9,7 @@
     ./firefox.nix
     ./dunst.nix
     ./user_packages.nix
+    ./jan.nix
   ];
 
   nixpkgs = {
